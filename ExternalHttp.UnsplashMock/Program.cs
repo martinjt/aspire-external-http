@@ -16,8 +16,8 @@ builder.Services.AddProblemDetails();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
-var accessKey = builder.Configuration["Unsplash:AccessKey"]
-    ?? throw new InvalidOperationException("Unsplash:AccessKey must be configured for the mock.");
+var accessKey = builder.Configuration["Unsplash:ApiKey"]
+    ?? throw new InvalidOperationException("Unsplash:ApiKey must be configured for the mock.");
 
 var app = builder.Build();
 

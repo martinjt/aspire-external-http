@@ -12,10 +12,10 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddOutputCache();
 
-var unsplashAccessKey = builder.Configuration["Unsplash:AccessKey"]
-    ?? throw new InvalidOperationException("Unsplash:AccessKey must be configured.");
+var unsplashApiKey = builder.Configuration["Unsplash:ApiKey"]
+    ?? throw new InvalidOperationException("Unsplash:ApiKey must be configured.");
 
-builder.Services.AddHttpClient<UnsplashClient>(client => UnsplashClient.Configure(client, unsplashAccessKey));
+builder.Services.AddHttpClient<UnsplashClient>(client => UnsplashClient.Configure(client, unsplashApiKey));
 
 var app = builder.Build();
 

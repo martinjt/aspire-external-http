@@ -31,11 +31,11 @@ if (builder.Environment.IsDevelopment())
 
     var unsplashMock = builder.AddProject<Projects.ExternalHttp_UnsplashMock>("unsplash")
         .WithHttpHealthCheck("/health")
-        .WithEnvironment("Unsplash__AccessKey", accessKey);
+        .WithEnvironment("Unsplash__ApiKey", accessKey);
 
     web.WithReference(unsplashMock)
        .WaitFor(unsplashMock)
-       .WithEnvironment("Unsplash__AccessKey", accessKey);
+       .WithEnvironment("Unsplash__ApiKey", accessKey);
 }
 else
 {
@@ -46,7 +46,7 @@ else
     var unsplash = builder.AddExternalService("unsplash", "https://api.unsplash.com/");
 
     web.WithReference(unsplash)
-       .WithEnvironment("Unsplash__AccessKey", accessKey);
+       .WithEnvironment("Unsplash__ApiKey", accessKey);
 }
 
 builder.Build().Run();
