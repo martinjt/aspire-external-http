@@ -1,0 +1,29 @@
+@page "/"
+@attribute [StreamRendering(true)]
+@inject UnsplashClient Unsplash
+
+<PageTitle>Random photo</PageTitle>
+
+<h1>Random photo</h1>
+
+@if (photo is null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <img src="@photo.Urls.Regular" alt="@photo.AltDescription" class="img-fluid rounded" />
+    <p class="mt-2">
+        Photo by <a href="@photo.User.Links.Html">@photo.User.Name</a>
+        on <a href="@photo.Links.Html">Unsplash</a>
+    </p>
+}
+
+@code {
+    private UnsplashPhoto? photo;
+
+    protected override async Task OnInitializedAsync()
+    {
+        photo = await Unsplash.GetRandomPhotoAsync();
+    }
+}

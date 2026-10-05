@@ -1,0 +1,17 @@
+<Project Sdk="Aspire.AppHost.Sdk/13.6.0">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AspireUseCliBundle>true</AspireUseCliBundle>
+    <UserSecretsId>2642d205-c8e7-4f8c-a757-5e27de5e040f</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ExternalHttp.Web\ExternalHttp.Web.csproj" />
+    <ProjectReference Include="..\ExternalHttp.UnsplashMock\ExternalHttp.UnsplashMock.csproj" />
+  </ItemGroup>
+
+</Project>
