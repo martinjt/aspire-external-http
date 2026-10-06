@@ -12,6 +12,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ExternalHttp.Web\ExternalHttp.Web.csproj" />
     <ProjectReference Include="..\ExternalHttp.UnsplashMock\ExternalHttp.UnsplashMock.csproj" />
+    <ProjectReference Include="..\ExternalHttp.Hosting\ExternalHttp.Hosting.csproj" IsAspireProjectResource="false" />
   </ItemGroup>
 
 </Project>
