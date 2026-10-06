@@ -39,14 +39,14 @@ if (builder.Environment.IsDevelopment())
 }
 else
 {
-    // The real key must be supplied at deploy time
-    // (or as Parameters:unsplash-access-key in configuration).
-    var accessKey = builder.AddParameter("unsplash-access-key", secret: true);
-
     var unsplash = builder.AddExternalService("unsplash", "https://api.unsplash.com/");
 
-    web.WithReference(unsplash)
-       .WithEnvironment("Unsplash__ApiKey", accessKey);
+    web.WithReference(unsplash);
+
+    // SPIKE: WithApiKey as an extension of the built-in ExternalServiceResource.
+    // Adds a required "unsplash-api-key" secret and injects it as unsplash__ApiKey
+    // into every resource that references the service (here, after the fact).
+    unsplash.WithApiKey();
 }
 
 builder.Build().Run();
